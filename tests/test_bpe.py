@@ -27,6 +27,21 @@ def test_word_bpe_hand_worked_first_five_merges() -> None:
     ]
 
 
+def test_byte_bpe_hand_worked_unicode_emoji_first_five() -> None:
+    """é🚀 é🚀 table — first five byte merges must match the README."""
+    tok = BytePairTokenizer()
+    tok.train("é🚀 é🚀", vocab_size=256 + 5)
+    assert tok.merges == [
+        (195, 169),  # é
+        (256, 240),
+        (257, 159),
+        (258, 154),
+        (259, 128),  # full é🚀
+    ]
+    assert tok.vocab[256] == "é".encode("utf-8")
+    assert tok.vocab[260] == "é🚀".encode("utf-8")
+
+
 @pytest.mark.parametrize(
     "text",
     [
