@@ -16,7 +16,28 @@ python3 main.py encode "low lower newest café 🚀"
 python3 main.py decode 108 111 119
 ```
 
-You should see merges learned, token IDs with a chars-per-token ratio, and a decoded string. That means training and round-trips work before you touch a line of the algorithm.
+**Expected stdout** (deterministic on this corpus + flags — yours should match):
+
+```text
+# pytest
+...........                                                              [100%]
+11 passed
+
+# train
+merges learned: 144
+first merges: (101,32), (32,116), (101,110), (101,114), (115,32), (116,32), (46,32), (105,110) ...
+saved: tokenizer.json
+
+# encode  →  "low lower newest café 🚀"
+280 298 259 32 357 339 32 365
+tokens: 8
+chars-per-token: 2.875
+
+# decode 108 111 119  →  raw UTF-8 bytes for "low" (no merges needed)
+low
+```
+
+If train/encode numbers drift, either the corpus changed or the merge tie-break broke — open an issue before "fixing" the algorithm by eye.
 
 ## Why a tokenizer is the right first look under the hood
 
