@@ -96,14 +96,21 @@ New to pull requests? Start at [first-commit-ai](https://github.com/primeodin/fi
 
 ## Daily builds series
 
-| Repo | Level |
-| --- | --- |
-| [first-commit-ai](https://github.com/primeodin/first-commit-ai) | starter chat CLI |
-| [notes-rag](https://github.com/primeodin/notes-rag) | starter RAG |
-| **tiny-bpe-tokenizer** (this) | starter tokenizer |
-| next: tiny tool-calling agent (ReAct, no framework soup) | mid |
+Tiny, tested teaching repos — starter → mid. Ship one, read it, then climb:
 
-Full roadmap on the profile: [github.com/primeodin](https://github.com/primeodin)
+| Lane | Repo | Why open it |
+| --- | --- | --- |
+| Starter chat | [first-commit-ai](https://github.com/primeodin/first-commit-ai) | Mock-first chat CLI + pytest |
+| Starter RAG | [notes-rag](https://github.com/primeodin/notes-rag) | Retrieve, cite, answer over Markdown notes |
+| Starter tokenizer (this) | [tiny-bpe-tokenizer](https://github.com/primeodin/tiny-bpe-tokenizer) | Watch text become token IDs — train, encode, decode |
+| Attention mid | [attention-warrior](https://github.com/primeodin/attention-warrior) | Transformer attention you can hold in one hand |
+| Shop skills | [mister-jay](https://github.com/primeodin/mister-jay) | Interactive DIY drills (vehicle, electrical, plumbing) — [live](https://primeodin.github.io/mister-jay/) |
+| Literacy (Sinhala) | [jay-ai-sinhala](https://github.com/primeodin/jay-ai-sinhala) | Friends 70+ learning GitHub + AI — [live](https://primeodin.github.io/jay-ai-sinhala/) |
+| Systems DIY | [camera-selector](https://github.com/primeodin/camera-selector) | NVR/Frigate camera planning — [live](https://primeodin.github.io/camera-selector/) |
+
+Weekday cadence, in order: chat CLI → RAG → tokenizer (this, shipped) → tool agent → prompt lab → embeddings → vision → memory → shop-skill explainer.
+
+Profile forge: [github.com/primeodin](https://github.com/primeodin)
 
 ## License
 
