@@ -1,0 +1,57 @@
+# Sample corpus — written for this teaching repo
+# Public-domain-ish teaching text about tokenizers and byte-pair encoding.
+# Purpose: give tiny-bpe-tokenizer something small, readable, and repetitive to train on.
+
+Tokenizers chop text into pieces a model can count. Words are not the unit.
+Letters are not the unit either. The unit is a learned piece — a token.
+
+Byte-pair encoding (BPE) starts from the smallest units and greedily merges
+the pairs it sees most often. Frequency buys short tokens. Rare spellings
+stay long. That is why a common English word can be one token while your
+name might be four.
+
+low low low low low
+lower lower
+newest newest newest
+
+Train on text. Count every adjacent pair. Merge the winner. Record the merge.
+Replay those merges to encode. Paste the symbols back to decode. That is the
+whole algorithm — five lines of idea, not a library.
+
+Emoji and non-ASCII make the byte level matter. Try this line:
+café 🚀 café 🚀 café
+
+Repeated English words help the learner watch merges form:
+the the the the the
+token token token
+merge merge merge merge
+pair pair pair
+vocab vocab
+encode encode encode
+decode decode
+lossless lossless
+byte byte byte byte
+pair pair pair pair
+
+Why teach BPE by hand? Because once you have merged low ×5, lower ×2, and
+newest ×3 on paper, the mystery of "1,000 tokens is not 1,000 words" goes
+away. Compression is visible. Ties go to the pair seen first so two honest
+implementations match.
+
+Keep the machine small. Pure Python. Standard library at runtime. No network
+on the happy path. Comments written for a reader, not a benchmark.
+
+More filler so the corpus is a few kilobytes of clearly sourced teaching text
+written for this teaching repo and nowhere else:
+
+Tokenizer tokenizer tokenizer. Encoding encoding. Decoding decoding.
+Vocabulary vocabulary vocabulary. Symbol symbol. Corpus corpus corpus.
+Adjacent adjacent. Frequency frequency frequency. Deterministic deterministic.
+Unicode unicode. UTF-8 utf-8. Replacement replacement.
+
+low lower lowest lowly
+new newest newer newly
+cafe café cafe café
+rocket 🚀 rocket 🚀
+
+End of sample corpus written for this teaching repo.
