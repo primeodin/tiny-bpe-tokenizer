@@ -21,7 +21,7 @@ python3 main.py decode 108 111 119
 ```text
 # pytest
 ...........                                                              [100%]
-11 passed
+12 passed
 
 # train
 merges learned: 144
@@ -83,6 +83,35 @@ Step 1 is a tie: `l`+`o` and `o`+`w` both score 7. **Ties go to the pair seen fi
 
 Notice what happened: `low` swallowed three merges before `newest` got one. Frequency buys short tokens. That is exactly why a common English word is 1 token and your name might be 4.
 
+
+## Watch bytes merge (unicode + emoji)
+
+Same algorithm, now at the **byte** level the real tokenizer uses. Corpus (twice):
+
+```text
+é🚀
+```
+
+UTF-8 before any merge — this is what the model actually sees:
+
+| Glyph | UTF-8 bytes (decimal) | Hex |
+| --- | --- | --- |
+| `é` | `195` `169` | `C3` `A9` |
+| `🚀` | `240` `159` `154` `128` | `F0` `9F` `9A` `80` |
+| space | `32` | `20` |
+
+Full stream: `195 169 240 159 154 128 32 195 169 240 159 154 128`
+
+| Step | Winning pair | Count | New symbol | Corpus after |
+| --- | --- | --- | --- | --- |
+| 1 | `195` + `169` | 2 | `é` | `é` `240` `159` `154` `128` · space · `é` `240` `159` `154` `128` |
+| 2 | `é` + `240` | 2 | `é`+`F0` | `éF0` `159` `154` `128` · space · `éF0` `159` `154` `128` |
+| 3 | `éF0` + `159` | 2 | `éF09F` | `éF09F` `154` `128` · space · `éF09F` `154` `128` |
+| 4 | `éF09F` + `154` | 2 | `éF09F9A` | `éF09F9A` `128` · space · `éF09F9A` `128` |
+| 5 | `éF09F9A` + `128` | 2 | `é🚀` | `é🚀` · space · `é🚀` |
+
+Step 1 is a five-way tie at count 2. **Ties go to the pair seen first**, so `195`+`169` (`é`) wins over the rocket’s leading `240`+`159`. After five merges the rocket is finally one token — until then it costs up to four. That is why “one emoji” is rarely one token on a fresh byte-level vocab.
+
 ## What you just built
 
 | Piece | Job |
@@ -110,7 +139,6 @@ Design constraints the code holds to:
 
 Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/issues). Open contribution ideas:
 
-- **#2** — unicode / emoji hand-worked merge table (docs + test)
 - **#3** — CLI design review (flags, output shape, ergonomics)
 
 New to pull requests? Start at [first-commit-ai](https://github.com/primeodin/first-commit-ai), then come back.
