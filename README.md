@@ -137,6 +137,8 @@ Design constraints the code holds to:
 
 ## Help / good first issues
 
+How to fork, install, prove the wiring, and open a small PR: see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+
 Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/issues). Open contribution ideas:
 
 - **#3** — CLI design review (flags, output shape, ergonomics)
