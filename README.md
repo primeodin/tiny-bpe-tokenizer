@@ -139,11 +139,14 @@ Design constraints the code holds to:
 
 How to fork, install, prove the wiring, and open a small PR: see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
-Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/issues). Open contribution ideas:
+Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/issues). **Open (good first issue):**
 
-- **#3** — CLI design review (flags, output shape, ergonomics)
-- **#4** — `encode --pieces` (print readable UTF-8 chunks beside token ids)
-- **#5** — `docs/why-bytes.md` (café + emoji cost walkthrough)
+- [#3](https://github.com/primeodin/tiny-bpe-tokenizer/issues/3) — CLI design review (flags, output shape, ergonomics)
+- [#4](https://github.com/primeodin/tiny-bpe-tokenizer/issues/4) — `encode --pieces` (print readable UTF-8 chunks beside token ids)
+
+**Shipped from Help:**
+
+- [`docs/why-bytes.md`](docs/why-bytes.md) (was #5) — why bytes `0–255`, café / rocket cost demo
 
 New to pull requests? Start at [first-commit-ai](https://github.com/primeodin/first-commit-ai), then come back.
 
