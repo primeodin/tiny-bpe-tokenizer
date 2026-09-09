@@ -49,6 +49,8 @@ Once you can run it by hand, three mysteries go away:
 - why emoji and non-English text cost more
 - why models are oddly bad at spelling and counting letters
 
+For the byte-level version, read [Why bytes come first](docs/why-bytes.md): a short café and rocket walkthrough.
+
 ## The whole algorithm, in five lines
 
 1. Start from the smallest units (bytes, or characters) so every text is representable.
