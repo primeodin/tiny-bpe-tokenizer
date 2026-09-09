@@ -44,6 +44,8 @@ Keep the tie rule: **ties go to the pair seen first.** That keeps training deter
 Scoped tickets (file named in the issue body):
 
 - [#3 — CLI design review (flags, output shape, ergonomics)](https://github.com/primeodin/tiny-bpe-tokenizer/issues/3)
+- [#4 — encode --pieces flag (IDs + readable UTF-8 chunks)](https://github.com/primeodin/tiny-bpe-tokenizer/issues/4)
+- [#5 — docs/why-bytes.md (café + emoji cost walkthrough)](https://github.com/primeodin/tiny-bpe-tokenizer/issues/5)
 
 Claim one with a comment, ask questions in the thread, then open the PR. Docs and design notes count.
 

@@ -142,6 +142,8 @@ How to fork, install, prove the wiring, and open a small PR: see **[CONTRIBUTING
 Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/issues). Open contribution ideas:
 
 - **#3** — CLI design review (flags, output shape, ergonomics)
+- **#4** — `encode --pieces` (print readable UTF-8 chunks beside token ids)
+- **#5** — `docs/why-bytes.md` (café + emoji cost walkthrough)
 
 New to pull requests? Start at [first-commit-ai](https://github.com/primeodin/first-commit-ai), then come back.
 
