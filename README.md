@@ -45,9 +45,9 @@ Every model you have ever typed at starts by chopping your sentence into pieces 
 
 Once you can run it by hand, three mysteries go away:
 
-- why a "1,000 token" limit is not 1,000 words
-- why emoji and non-English text cost more
-- why models are oddly bad at spelling and counting letters
+- why a "1,000 token" limit is not 1,000 words — [hand-worked budget trap](docs/why-token-budget.md)
+- why emoji and non-English text cost more — [why bytes, not characters](docs/why-bytes.md)
+- why models are oddly bad at spelling and counting letters (same cut as the budget note)
 
 ## The whole algorithm, in five lines
 
@@ -137,6 +137,8 @@ Design constraints the code holds to:
 
 ## Help / good first issues
 
+Teaching notes: [Why a 1,000-token limit is not 1,000 words](docs/why-token-budget.md) · [Why bytes, not characters](docs/why-bytes.md).
+
 How to fork, install, prove the wiring, and open a small PR: see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
 Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/issues). **Open (good first issue):**
@@ -147,6 +149,7 @@ Scoped tickets live in [Issues](https://github.com/primeodin/tiny-bpe-tokenizer/
 **Shipped from Help:**
 
 - [`docs/why-bytes.md`](docs/why-bytes.md) (was #5) — why bytes `0–255`, café / rocket cost demo
+- [`docs/why-token-budget.md`](docs/why-token-budget.md) — words ≠ tokens; verified encode counts + vocab-size table
 
 New to pull requests? Start at [first-commit-ai](https://github.com/primeodin/first-commit-ai), then come back.
 
